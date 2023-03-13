@@ -35,7 +35,7 @@
 |   |--- apis # Setup call api for each module
 |   |--- components # Share UI
 |   |--- constants # constants variable
-|   |--- contexts # management global state
+|   |--- contexts # Management global state
 |   |--- hooks # Share Functions
 |   |--- layouts # Setup Layouts
 |   |--- mockup
@@ -89,3 +89,7 @@ Your app is ready to be deployed!
 ```
 npm run coverage
 ```
+
+## UseCase Diagram
+
+![useCase](./src/assets/useCaseDiagram.png)

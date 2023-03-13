@@ -6,8 +6,11 @@ import summaryRequests from './src/msw/summary.msw'
 import countryRequests from './src/msw/country.msw'
 expect.extend(matchers)
 global.ResizeObserver = require('resize-observer-polyfill')
+
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
+  configurable: true,
+
   value: vi.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
@@ -19,6 +22,7 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: vi.fn()
   }))
 })
+
 const server = setupServer(
   ...authRequests,
   ...summaryRequests,

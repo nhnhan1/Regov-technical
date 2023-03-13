@@ -52,6 +52,7 @@ export default function Input({
           stroke='currentColor'
           className={classNameEye}
           onClick={tgggleEye}
+          id='closeEye'
         >
           <path
             strokeLinecap='round'
@@ -74,6 +75,7 @@ export default function Input({
           stroke='currentColor'
           className={classNameEye}
           onClick={tgggleEye}
+          id='openEye'
         >
           <path
             strokeLinecap='round'

@@ -23,7 +23,8 @@ export default function TopBar() {
   const { toggleSidebar, collapseSidebar, broken, collapsed } = useProSidebar()
   const logout = () => {
     clearLS()
-    window.location.href = path.login
+    window.location.assign(path.login)
+    // window.location.href = path.login
   }
   return (
     <>
@@ -54,6 +55,7 @@ export default function TopBar() {
                               className='h-8 w-8 rounded-full'
                               src={user.imageUrl}
                               alt=''
+                              id='avtar'
                             />
                           </Menu.Button>
                         </div>
@@ -70,6 +72,7 @@ export default function TopBar() {
                             <Menu.Item>
                               {({ active }) => (
                                 <button
+                                  id='btn_logout'
                                   className={classNames(
                                     active ? 'bg-gray-100' : '',
                                     'block w-full px-4 py-2 text-sm text-gray-700'
@@ -97,9 +100,9 @@ export default function TopBar() {
             aria-hidden='true'
           >
             {collapsed ? (
-              <ArrowRightIcon className='h-4 w-4' />
+              <ArrowRightIcon className='h-4 w-4' id='arrowLeftIcon' />
             ) : (
-              <ArrowLeftIcon className='h-4 w-4' />
+              <ArrowLeftIcon className='h-4 w-4' id='arrowRightIcon' />
             )}
           </div>
         )}

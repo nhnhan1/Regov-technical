@@ -1,6 +1,6 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react'
 import path from 'src/constants/path'
-import { rennderWithRouter } from 'src/utils/__test__/testUtils'
+import { delay, rennderWithRouter } from 'src/utils/__test__/testUtils'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { AdminAccount } from 'src/constants/utils'
 describe('Login', () => {
@@ -45,6 +45,42 @@ describe('Login', () => {
     await waitFor(() => {
       expect(screen.queryByText(/Email or Password wrong/i)).toBeInTheDocument()
     })
+  })
+  it('Show Password', async () => {
+    const openEye = document.getElementById('openEye') as HTMLButtonElement
+    fireEvent.change(emailInput, {
+      target: {
+        value: 'admin1233@gmail.com'
+      }
+    })
+    fireEvent.change(passwordInput, {
+      target: {
+        value: AdminAccount.password
+      }
+    })
+    fireEvent.mouseOver(openEye)
+
+    await waitFor(() => {
+      expect(screen.queryByText(/123456/i)).toBeInTheDocument()
+    })
+  })
+  it('UnShow Password', async () => {
+    const openEye = document.getElementById('openEye') as HTMLElement
+    fireEvent.change(emailInput, {
+      target: {
+        value: 'admin1233@gmail.com'
+      }
+    })
+    fireEvent.change(passwordInput, {
+      target: {
+        value: AdminAccount.password
+      }
+    })
+    fireEvent.click(openEye)
+    await delay(1000)
+
+    const closeEye = document.getElementById('closeEye') as HTMLElement
+    fireEvent.click(closeEye)
   })
   it('Login Success', async () => {
     fireEvent.change(emailInput, {

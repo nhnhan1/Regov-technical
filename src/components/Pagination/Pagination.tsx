@@ -95,7 +95,10 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
   return (
     <div className='mt-6 flex flex-wrap justify-end'>
       {page === 1 ? (
-        <span className='mx-2 flex cursor-not-allowed items-center justify-center rounded-full border bg-white/60 px-3 py-2  shadow-sm'>
+        <span
+          className='mx-2 flex cursor-not-allowed items-center justify-center rounded-full border bg-white/60 px-3 py-2  shadow-sm'
+          id='chevron-left'
+        >
           <ChevronLeftIcon className='h-4 w-4' />
         </span>
       ) : (
@@ -107,6 +110,7 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
               page: (page - 1).toString()
             }).toString()
           }}
+          id='chevron-left'
           className='mx-2 flex cursor-pointer items-center justify-center rounded-full border bg-white px-3 py-2 shadow-sm'
         >
           <ChevronLeftIcon className='h-4 w-4' />
@@ -115,7 +119,10 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
 
       {renderPagination()}
       {page === pageSize ? (
-        <span className='mx-2 flex cursor-not-allowed items-center justify-center rounded-full border bg-white/60 px-3 py-2  shadow-sm'>
+        <span
+          className='mx-2 flex cursor-not-allowed items-center justify-center rounded-full border bg-white/60 px-3 py-2  shadow-sm'
+          id='chevron-right'
+        >
           <ChevronRightIcon className='h-4 w-4' />
         </span>
       ) : (
@@ -127,6 +134,7 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
               page: (page + 1).toString()
             }).toString()
           }}
+          id='chevron-right'
           className='mx-2 flex cursor-pointer items-center justify-center rounded-full  border bg-white px-3 py-2  shadow-sm'
         >
           <ChevronRightIcon className='h-4 w-4' />
